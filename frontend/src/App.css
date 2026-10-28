@@ -1,0 +1,421 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f4f3ff;
+  background: #0c0b16;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center;     /* Vertical center */
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+  background:
+    radial-gradient(ellipse at 15% 15%, #30205b 0, transparent 38%),
+    radial-gradient(ellipse at 90% 85%, #102d46 0, transparent 35%),
+    #0c0b16;
+}
+
+.todo-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 590px;
+  margin: auto;
+  padding: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 28px;
+  background: rgba(22, 21, 37, 0.88);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(20px);
+}
+
+.ambient {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.ambient-one {
+  background: #9065ff;
+  top: 4%;
+  left: 10%;
+}
+
+.ambient-two {
+  background: #42c8e8;
+  bottom: 4%;
+  right: 10%;
+}
+
+
+
+.header {
+  text-align: center;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #a78bfa, #7462ed);
+  box-shadow: 0 8px 28px rgba(137, 103, 255, 0.28);
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.eyebrow {
+  color: #a69bbf;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.header h1 {
+  margin: 15px 0 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(38px, 7vw, 51px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.12;
+}
+
+.header h1 span {
+  color: #a894ff;
+}
+
+.header p {
+  margin: 12px 0 32px;
+  color: #a6a3b9;
+  font-size: 14px;
+}
+
+.progress-section {
+  padding: 19px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+  color: #aaa6be;
+  font-size: 12px;
+}
+
+.progress-label strong {
+  color: #e2d9ff;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #302b43;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8d71f8, #c2a8ff);
+  transition: width 0.3s ease;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.task-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 15px 16px;
+  color: #fff;
+  outline: none;
+  border: 1px solid #373248;
+  border-radius: 12px;
+  background: #171624;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.task-form input::placeholder {
+  color: #77738d;
+}
+
+.task-form input:focus {
+  border-color: #9479f5;
+  box-shadow: 0 0 0 3px rgba(148, 121, 245, 0.12);
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 17px;
+  white-space: nowrap;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a38bff, #8065ed);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 5px 20px rgba(128, 101, 237, 0.18);
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.add-button span {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.add-button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.list-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.list-heading h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.task-count {
+  display: grid;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  place-items: center;
+  border-radius: 8px;
+  background: #302748;
+  color: #c5b6ff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #302c40;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+  animation: appear 0.25s ease;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.task-item:hover {
+  border-color: #51456e;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.check-button {
+  display: grid;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1.5px solid #625878;
+  border-radius: 7px;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.completed .check-button {
+  border-color: #9980ff;
+  background: #8c70f4;
+}
+
+.task-text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #e7e4f2;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.completed .task-text {
+  color: #817c96;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  display: grid;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #8d879f;
+  transition: color 0.2s, background 0.2s;
+}
+
+.delete-button:hover {
+  color: #ff7e93;
+  background: rgba(255, 94, 125, 0.1);
+}
+
+.empty-state {
+  padding: 28px 10px;
+  text-align: center;
+  color: #a19bb5;
+}
+
+.empty-icon {
+  margin-bottom: 10px;
+  color: #aa94ff;
+  font-size: 32px;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  color: #e8e3f8;
+  font-size: 15px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  margin: 0 auto 14px;
+  border: 3px solid #39334d;
+  border-top-color: #a894ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 19px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: #77728c;
+  font-size: 9px;
+  letter-spacing: 0.7px;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #79ddb1;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    padding: 20px 12px;
+  }
+
+  .todo-card {
+    padding: 27px 19px;
+    border-radius: 22px;
+  }
+
+  .header h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form input {
+    width: 100%;
+  }
+
+  .add-button {
+    min-height: 46px;
+  }
+
+  .footer {
+    font-size: 8px;
+  }
+}
