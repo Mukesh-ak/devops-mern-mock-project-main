@@ -108,8 +108,15 @@ jobs:
           done
           echo "Backend did not become healthy"; exit 1
 
-      - name: Check frontend
-        run: curl -fs http://localhost:3000 > /dev/null
+      - name: Wait for frontend
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fs http://localhost:3000 > /dev/null; then
+              echo "Frontend is up"; exit 0
+            fi
+            echo "Waiting for frontend... ($i/40)"; sleep 3
+          done
+          echo "Frontend did not become healthy"; exit 1
 
       - name: Show container logs on failure
         if: failure()
