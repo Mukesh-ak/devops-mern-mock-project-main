@@ -75,7 +75,7 @@ function App() {
           </div>
 
           <span className="eyebrow">YOUR PERSONAL WORKSPACE</span>
-          <h1>Make today<br /> <span>count.</span></h1>
+          <h1>Make today work<br /> <span>count.</span></h1>
           <p>Small steps every day lead to big results.</p>
         </header>
 
